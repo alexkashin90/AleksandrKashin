@@ -15,7 +15,7 @@ public class CalculatorMultiplicationTest extends GeneralConditions {
 
     @Test(dataProvider = "DoubleTestData", dataProviderClass = CalculatorTestDataProvider.class)
     public void testMultiplicationDouble(double x, double y) {
-        double expected = Math.floor(x * y);
+        double expected = x * y;
         Assert.assertEquals(calculator.mult(x, y), expected);
     }
 }
