@@ -55,6 +55,8 @@ public class GeneralConditions {
     //12 or 10. Close browser
     @AfterClass(alwaysRun = true)
     public void tearDown() {
-        driver.quit();
+        if (null != driver) {
+            driver.quit();
+        }
     }
 }
