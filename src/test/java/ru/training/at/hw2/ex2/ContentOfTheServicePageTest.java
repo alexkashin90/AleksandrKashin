@@ -1,6 +1,7 @@
 package ru.training.at.hw2.ex2;
 
 import java.util.List;
+import java.util.Objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -29,19 +30,22 @@ public class ContentOfTheServicePageTest extends GeneralConditions {
 
         for (WebElement element : checkboxes) {
             String text = element.findElement(By.xpath("..")).getText();
-            if (text.contains("Water")) {
-                water = element;
-                water.click();
-            }
-            if (text.contains("Wind")) {
-                wind = element;
-                wind.click();
+            switch (text) {
+                case "Water":
+                    water = element;
+                    water.click();
+                    break;
+                case "Wind":
+                    wind = element;
+                    wind.click();
+                    break;
+                default: break;
             }
         }
 
         // Assert elements are checked
-        softAssert.assertTrue(water != null && water.isSelected());
-        softAssert.assertTrue(wind != null && wind.isSelected());
+        softAssert.assertTrue(Objects.requireNonNull(water).isSelected());
+        softAssert.assertTrue(Objects.requireNonNull(wind).isSelected());
         softAssert.assertAll();
     }
 
@@ -60,7 +64,7 @@ public class ContentOfTheServicePageTest extends GeneralConditions {
         }
 
         // Assert "Selen" is selected
-        softAssert.assertTrue(selen != null && selen.isSelected());
+        softAssert.assertTrue(Objects.requireNonNull(selen).isSelected());
         softAssert.assertAll();
     }
 
