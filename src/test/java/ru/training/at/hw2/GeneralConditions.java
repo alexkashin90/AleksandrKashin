@@ -13,7 +13,7 @@ import org.testng.asserts.SoftAssert;
 
 public class GeneralConditions {
     protected WebDriver driver;
-    protected  final String homePageURL = "https://jdi-testing.github.io/jdi-light/index.html";
+    protected final String homePageURL = "https://jdi-testing.github.io/jdi-light/index.html";
     protected String originalHandle;
     protected final SoftAssert softAssert = new SoftAssert();
 
