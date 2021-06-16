@@ -58,10 +58,10 @@ public class ContentOfTheHomePageTest extends GeneralConditions {
         softAssert.assertEquals(numberOfTextsBelowImages.size(), 4);
 
         //Assert that texts on the Index Page under icons have proper text
-        softAssert.assertEquals(numberOfTextsBelowImages.get(0).getText(), text1);
-        softAssert.assertEquals(numberOfTextsBelowImages.get(1).getText(), text2);
-        softAssert.assertEquals(numberOfTextsBelowImages.get(2).getText(), text3);
-        softAssert.assertEquals(numberOfTextsBelowImages.get(3).getText(), text4);
+        softAssert.assertTrue(numberOfTextsBelowImages.get(0).getText().contains(text1));
+        softAssert.assertTrue(numberOfTextsBelowImages.get(1).getText().contains(text2));
+        softAssert.assertTrue(numberOfTextsBelowImages.get(2).getText().contains(text3));
+        softAssert.assertTrue(numberOfTextsBelowImages.get(3).getText().contains(text4));
         softAssert.assertAll();
     }
 

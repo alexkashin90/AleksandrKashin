@@ -13,21 +13,20 @@ public class TestDataProvider {
     @DataProvider(name = "TextBelowImages")
     public static Object[][] getExpectedTextBelowImages() {
         return new Object[][]{
-                {"To include good practices\nand ideas from successful\nEPAM project",
-                "To be flexible and\ncustomizable",
+                {"To include good practices\nand ideas from successful",
+                "To be flexible",
                 "To be multiplatform",
-                "Already have good base\n(about 20 internal and\n"
-                    + "some external projects),\nwish to get more…"}
+                "Already have good base\n(about 20 internal and"}
         };
     }
 
     @DataProvider(name = "TextOfLogs")
     public static Object[][] getExpectedTextOfLogs() {
         return new Object[][]{
-                {"Colors: value changed to Yellow",
-                "metal: value changed to Selen",
-                "Wind: condition changed to true",
-                "Water: condition changed to true"}
+                {"value changed to Yellow",
+                "value changed to Selen",
+                "condition changed to true",
+                "condition changed to true"}
         };
     }
 }
