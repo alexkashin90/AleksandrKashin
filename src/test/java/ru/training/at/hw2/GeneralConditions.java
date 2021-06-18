@@ -31,7 +31,7 @@ public class GeneralConditions {
 
     //2. Assert Browser title
     @Test
-    public void checkHomePageTitle() {
+    public void checkHomePageTitleText() {
         softAssert.assertEquals(driver.getTitle(), TestData.HOME_PAGE_TITLE);
         softAssert.assertAll();
     }
