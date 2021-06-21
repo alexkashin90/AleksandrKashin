@@ -16,9 +16,14 @@
         <checkstyle.version>8.42</checkstyle.version>
         <calculator.version>1.0</calculator.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <webdriver-factory.version>4.3</webdriver-factory.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <additionAndSubtractionTestsXML>src/test/resources/runAdditionAndSubtractionTests.xml</additionAndSubtractionTestsXML>
         <multiplicationAndDivisionTestsXML>src/test/resources/runMultiplicationAndDivisionTests.xml</multiplicationAndDivisionTestsXML>
         <allTestsXML>src/test/resources/runAllTests.xml</allTestsXML>
+        <allTestsHomework2XML>src/test/resources/runAllTestsHomeWork2.xml</allTestsHomework2XML>
+        <allTestsHomework3XML>src/test/resources/runAllTestsHomeWork3.xml</allTestsHomework3XML>
     </properties>
     <dependencies>
         <dependency>
@@ -33,6 +38,22 @@
             <version>${calculator.version}</version>
             <scope>system</scope>
             <systemPath>${pom.basedir}/lib/calculator-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>ru.stqa.selenium</groupId>
+            <artifactId>webdriver-factory</artifactId>
+            <version>${webdriver-factory.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
@@ -72,9 +93,6 @@
     <profiles>
         <profile>
             <id>additionAndSubtractionTests</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <build>
                 <plugins>
                     <plugin>
@@ -118,6 +136,26 @@
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>${allTestsXML}</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>allTestsHomeWork2</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${maven-surefire-plugin.version}</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>${allTestsHomework2XML}</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
