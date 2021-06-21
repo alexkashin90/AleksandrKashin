@@ -53,8 +53,8 @@ public class LoggedInHomePageSteps {
         softAssert.assertAll();
     }
 
-    public static void checkThatThatTextsBelowImagesAreProper(LoggedInHomePage page,
-                                                              List<String> expectedTexts) {
+    public static void checkThatTextsBelowImagesAreProper(LoggedInHomePage page,
+                                                          List<String> expectedTexts) {
         List<WebElement> textsBelowImages = page.getTextsBelowImages();
         IntStream.range(0, textsBelowImages.size())
                 .forEachOrdered(index -> softAssert.assertTrue(

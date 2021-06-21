@@ -13,12 +13,12 @@ public class DifferentElementsPageSteps {
 
     private static final SoftAssert softAssert = new SoftAssert();
 
-    public static void checkIfDifferentElementsPageIsOpened(AbstractPage page, String expected) {
+    public static void checkThatDifferentElementsPageIsOpened(AbstractPage page, String expected) {
         softAssert.assertEquals(page.getTitle(), expected);
     }
 
-    public static void checkIfCheckboxesAreUnchecked(DifferentElementsPage page, int waterListNumber,
-                                                     int windListNumber) {
+    public static void checkThatCheckboxesAreUnchecked(DifferentElementsPage page, int waterListNumber,
+                                                       int windListNumber) {
         softAssert.assertFalse(page.waterIsChecked(waterListNumber));
         softAssert.assertFalse(page.windIsChecked(windListNumber));
         softAssert.assertAll();
@@ -30,8 +30,8 @@ public class DifferentElementsPageSteps {
         page.clickWindCheckbox(windListNumber);
     }
 
-    public static void checkIfCheckboxesAreChecked(DifferentElementsPage page, int waterListNumber,
-                                                   int windListNumber) {
+    public static void checkThatCheckboxesAreChecked(DifferentElementsPage page, int waterListNumber,
+                                                     int windListNumber) {
         softAssert.assertTrue(page.waterIsChecked(waterListNumber));
         softAssert.assertTrue(page.windIsChecked(windListNumber));
         softAssert.assertAll();
@@ -41,7 +41,7 @@ public class DifferentElementsPageSteps {
         page.selectSelenRadio(selenListNumber);
     }
 
-    public static void checkIfRadioIsSelected(DifferentElementsPage page, int selenListNumber) {
+    public static void checkThatRadioIsSelected(DifferentElementsPage page, int selenListNumber) {
         softAssert.assertTrue(page.selenRadioIsChecked(selenListNumber));
     }
 
@@ -54,7 +54,7 @@ public class DifferentElementsPageSteps {
     }
 
 
-    public static void checkIfLogsAreDisplayed(DifferentElementsPage page, List<String> expectedTexts) {
+    public static void checkThatLogsAreDisplayed(DifferentElementsPage page, List<String> expectedTexts) {
         List<WebElement> logs = page.getLogs();
         softAssert.assertEquals(logs.size(), expectedTexts.size());
         for (WebElement webElement : logs) {
@@ -63,7 +63,7 @@ public class DifferentElementsPageSteps {
         softAssert.assertAll();
     }
 
-    public static void checkIfLogsHaveProperTexts(DifferentElementsPage page, List<String> expectedTexts) {
+    public static void checkThatLogsHaveProperTexts(DifferentElementsPage page, List<String> expectedTexts) {
         List<WebElement> logs = page.getLogs();
         IntStream.range(0, logs.size())
                 .forEachOrdered(index -> softAssert.assertTrue(

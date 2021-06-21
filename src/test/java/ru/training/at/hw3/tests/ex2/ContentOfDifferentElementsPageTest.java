@@ -12,18 +12,18 @@ public class ContentOfDifferentElementsPageTest extends BaseTest {
     @Test(priority = 2)
     public void testDifferentElementsPageIsOpened() {
         differentElementsPage = LoggedInHomePageSteps.navigateToDifferentElementsPage(loggedInHomePage);
-        DifferentElementsPageSteps.checkIfDifferentElementsPageIsOpened(differentElementsPage,
+        DifferentElementsPageSteps.checkThatDifferentElementsPageIsOpened(differentElementsPage,
                 DifferentElementsPageTestData.DIFFERENT_ELEMENTS_PAGE_TITLE);
     }
 
     // 6. Select checkboxes
     @Test(priority = 3)
     public void testCheckboxesAreSelected() {
-        DifferentElementsPageSteps.checkIfCheckboxesAreUnchecked(differentElementsPage,
+        DifferentElementsPageSteps.checkThatCheckboxesAreUnchecked(differentElementsPage,
                 DifferentElementsPageTestData.WATER_LIST_NUMBER, DifferentElementsPageTestData.WIND_LIST_NUMBER);
         DifferentElementsPageSteps.selectCheckboxes(differentElementsPage,
                 DifferentElementsPageTestData.WATER_LIST_NUMBER, DifferentElementsPageTestData.WIND_LIST_NUMBER);
-        DifferentElementsPageSteps.checkIfCheckboxesAreChecked(differentElementsPage,
+        DifferentElementsPageSteps.checkThatCheckboxesAreChecked(differentElementsPage,
                 DifferentElementsPageTestData.WATER_LIST_NUMBER, DifferentElementsPageTestData.WIND_LIST_NUMBER);
     }
 
@@ -32,7 +32,7 @@ public class ContentOfDifferentElementsPageTest extends BaseTest {
     public void testRadioIsSelected() {
         DifferentElementsPageSteps.selectRadio(differentElementsPage,
                 DifferentElementsPageTestData.SELEN_LIST_NUMBER);
-        DifferentElementsPageSteps.checkIfRadioIsSelected(differentElementsPage,
+        DifferentElementsPageSteps.checkThatRadioIsSelected(differentElementsPage,
                 DifferentElementsPageTestData.SELEN_LIST_NUMBER);
     }
 
@@ -52,9 +52,9 @@ public class ContentOfDifferentElementsPageTest extends BaseTest {
     // for dropdown there is a log row and value is corresponded to the selected value.
     @Test(priority = 6)
     public void testOfLogs() {
-        DifferentElementsPageSteps.checkIfLogsAreDisplayed(differentElementsPage,
+        DifferentElementsPageSteps.checkThatLogsAreDisplayed(differentElementsPage,
                 DifferentElementsPageTestData.TEXTS_OF_LOGS);
-        DifferentElementsPageSteps.checkIfLogsHaveProperTexts(differentElementsPage,
+        DifferentElementsPageSteps.checkThatLogsHaveProperTexts(differentElementsPage,
                 DifferentElementsPageTestData.TEXTS_OF_LOGS);
     }
 }

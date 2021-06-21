@@ -32,7 +32,7 @@ public class ContentOfHomePageTest extends BaseTest {
     public void testTextsBelowImages() {
         LoggedInHomePageSteps.checkThatTextsBelowImagesAreDisplayed(loggedInHomePage,
                 HomePageTestData.TEXTS_BELOW_IMAGES.size());
-        LoggedInHomePageSteps.checkThatThatTextsBelowImagesAreProper(loggedInHomePage,
+        LoggedInHomePageSteps.checkThatTextsBelowImagesAreProper(loggedInHomePage,
                 HomePageTestData.TEXTS_BELOW_IMAGES);
     }
 
