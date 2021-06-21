@@ -144,6 +144,23 @@
         </profile>
         <profile>
             <id>allTestsHomeWork2</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${maven-surefire-plugin.version}</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>${allTestsHomework2XML}</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>allTestsHomeWork3</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -155,7 +172,7 @@
                         <version>${maven-surefire-plugin.version}</version>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>${allTestsHomework2XML}</suiteXmlFile>
+                                <suiteXmlFile>${allTestsHomework3XML}</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
