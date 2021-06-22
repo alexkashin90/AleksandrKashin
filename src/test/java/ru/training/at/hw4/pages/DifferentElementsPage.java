@@ -22,7 +22,7 @@ public class DifferentElementsPage extends AbstractPage {
         super(driver);
     }
 
-    public boolean waterIsChecked(int listNumber) {
+    public boolean isWaterChecked(int listNumber) {
         return checkboxes.get(listNumber).isSelected();
     }
 
@@ -30,7 +30,7 @@ public class DifferentElementsPage extends AbstractPage {
         checkboxes.get(listNumber).click();
     }
 
-    public boolean windIsChecked(int listNumber) {
+    public boolean isWindChecked(int listNumber) {
         return checkboxes.get(listNumber).isSelected();
     }
 
@@ -38,7 +38,7 @@ public class DifferentElementsPage extends AbstractPage {
         checkboxes.get(listNumber).click();
     }
 
-    public boolean selenRadioIsChecked(int listNumber) {
+    public boolean isSelenRadioChecked(int listNumber) {
         return radios.get(listNumber).isSelected();
     }
 

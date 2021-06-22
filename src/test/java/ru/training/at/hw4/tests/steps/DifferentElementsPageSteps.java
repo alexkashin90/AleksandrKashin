@@ -22,8 +22,8 @@ public class DifferentElementsPageSteps {
     @Step("Check that 'water' and 'wind' checkboxes are unchecked")
     public static void checkThatCheckboxesAreUnchecked(DifferentElementsPage page, int waterListNumber,
                                                        int windListNumber) {
-        softAssert.assertFalse(page.waterIsChecked(waterListNumber));
-        softAssert.assertFalse(page.windIsChecked(windListNumber));
+        softAssert.assertFalse(page.isWaterChecked(waterListNumber));
+        softAssert.assertFalse(page.isWindChecked(windListNumber));
         softAssert.assertAll();
     }
 
@@ -37,8 +37,8 @@ public class DifferentElementsPageSteps {
     @Step("Check that 'water' and 'wind' checkboxes are checked")
     public static void checkThatCheckboxesAreChecked(DifferentElementsPage page, int waterListNumber,
                                                      int windListNumber) {
-        softAssert.assertTrue(page.waterIsChecked(waterListNumber));
-        softAssert.assertTrue(page.windIsChecked(windListNumber));
+        softAssert.assertTrue(page.isWaterChecked(waterListNumber));
+        softAssert.assertTrue(page.isWindChecked(windListNumber));
         softAssert.assertAll();
     }
 
@@ -49,7 +49,7 @@ public class DifferentElementsPageSteps {
 
     @Step("Check that 'selen' radio is selected")
     public static void checkThatRadioIsSelected(DifferentElementsPage page, int selenListNumber) {
-        softAssert.assertTrue(page.selenRadioIsChecked(selenListNumber));
+        softAssert.assertTrue(page.isSelenRadioChecked(selenListNumber));
     }
 
     @Step("Select 'Yellow' color in dropdown")
