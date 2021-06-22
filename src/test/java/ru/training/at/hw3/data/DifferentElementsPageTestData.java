@@ -3,8 +3,6 @@ package ru.training.at.hw3.data;
 import java.util.List;
 
 public class DifferentElementsPageTestData {
-
-
     public static final String DIFFERENT_ELEMENTS_PAGE_TITLE = "Different Elements";
     public static final int WATER_LIST_NUMBER = 0;
     public static final int WIND_LIST_NUMBER = 2;
@@ -16,6 +14,4 @@ public class DifferentElementsPageTestData {
             "condition changed to true",
             "condition changed to true"
     );
-
-
 }
