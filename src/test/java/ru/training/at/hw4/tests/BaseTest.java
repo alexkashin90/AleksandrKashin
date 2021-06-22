@@ -6,16 +6,19 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import ru.training.at.hw4.data.BaseTestData;
 import ru.training.at.hw4.pages.DifferentElementsPage;
 import ru.training.at.hw4.pages.HomePage;
 import ru.training.at.hw4.pages.LoggedInHomePage;
+import ru.training.at.hw4.tests.listeners.Listener;
 import ru.training.at.hw4.tests.steps.HomePageSteps;
 import ru.training.at.hw4.tests.steps.LoggedInHomePageSteps;
 import ru.training.at.hw4.utils.DriverManager;
 
+@Listeners({Listener.class})
 @Feature("Base test for Exercise #1 and Exercise #2")
 @Story("Testing Home page title logging of the user")
 public class BaseTest {

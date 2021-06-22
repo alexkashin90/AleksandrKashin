@@ -23,6 +23,8 @@
         <aspectj.version>1.9.6</aspectj.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <slf4j-simple.version>1.7.30</slf4j-simple.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <assertj.version>3.19.0</assertj.version>
         <additionAndSubtractionTestsXML>src/test/resources/runAdditionAndSubtractionTests.xml
         </additionAndSubtractionTestsXML>
         <multiplicationAndDivisionTestsXML>src/test/resources/runMultiplicationAndDivisionTests.xml
@@ -74,7 +76,13 @@
                 <version>${slf4j-simple.version}</version>
                 <scope>test</scope>
             </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -234,4 +242,19 @@
             </build>
         </profile>
     </profiles>
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+                <configuration>
+                    <reportVersion>${allure-testng.version}</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
+
+
