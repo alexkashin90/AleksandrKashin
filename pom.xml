@@ -35,6 +35,7 @@
         <allTestsHomework3XML>src/test/resources/runAllTestsHomeWork3.xml</allTestsHomework3XML>
         <allTestsHomework4XML>src/test/resources/runAllTestsHomeWork4.xml</allTestsHomework4XML>
         <allTestsHomework5XML>src/test/resources/runAllTestsHomeWork5.xml</allTestsHomework5XML>
+        <allTestsHomework6XML>src/test/resources/runAllTestsHomeWork6.xml</allTestsHomework6XML>
     </properties>
     <dependencies>
         <dependency>
@@ -268,6 +269,43 @@
 
         <profile>
             <id>allTestsHomeWork5</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${maven-surefire-plugin.version}</version>
+                        <configuration>
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                                -Dcucumber.options="--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5JvmO"
+                            </argLine>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>${allTestsHomework5XML}</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.aspectj</groupId>
+                                <artifactId>aspectjweaver</artifactId>
+                                <version>${aspectj.version}</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                    <plugin>
+                        <groupId>io.qameta.allure</groupId>
+                        <artifactId>allure-maven</artifactId>
+                        <version>${allure-maven.version}</version>
+                        <configuration>
+                            <reportVersion>${allure-testng.version}</reportVersion>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>allTestsHomeWork6</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -283,7 +321,7 @@
                                 -Dcucumber.options="--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5JvmO"
                             </argLine>
                             <suiteXmlFiles>
-                                <suiteXmlFile>${allTestsHomework5XML}</suiteXmlFile>
+                                <suiteXmlFile>${allTestsHomework6XML}</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                         <dependencies>
