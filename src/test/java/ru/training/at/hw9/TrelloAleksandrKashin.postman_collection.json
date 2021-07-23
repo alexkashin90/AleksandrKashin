@@ -14,21 +14,31 @@
 						"exec": [
 							"var response = JSON.parse(responseBody);\r",
 							"var board_id = response.id;\r",
-							"var board_name = response.name;\r",
 							"\r",
-							"pm.environment.set(\"board_name\", board_name);\r",
-							"pm.environment.set(\"board_id\", board_id);\r",
-							"\r",
-							"tests['board_name'] = response.name === board_name;\r",
+							"pm.collectionVariables.set(\"board_id\", board_id);\r",
 							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is less than 1000ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"pm.test(\"Response time is less than 4000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check board's name\", function () {\r",
+							"  pm.expect(pm.response.json().name).to.eql(pm.collectionVariables.get(\"board_initial_name\"));\r",
 							"});\r",
 							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const board_initial_name = \"board_\"+Math.random().toString(3).substring(3,6);\r",
+							"pm.collectionVariables.set(\"board_initial_name\",board_initial_name);"
 						],
 						"type": "text/javascript"
 					}
@@ -76,16 +86,16 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is less than 1000ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"pm.test(\"Response time is less than 4000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check board's ID\", function () {\r",
-							"    pm.expect(pm.response.json().id).to.eql(pm.environment.get(\"board_id\"));\r",
+							"    pm.expect(pm.response.json().id).to.eql(pm.collectionVariables.get(\"board_id\"));\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check board's name\", function () {\r",
-							"  pm.expect(pm.response.json().name).to.eql(pm.environment.get(\"board_initial_name\"));\r",
+							"  pm.expect(pm.response.json().name).to.eql(pm.collectionVariables.get(\"board_initial_name\"));\r",
 							"});\r",
 							""
 						],
@@ -131,18 +141,28 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is less than 1000ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"pm.test(\"Response time is less than 4000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check board's ID\", function () {\r",
-							"    pm.expect(pm.response.json().id).to.eql(pm.environment.get(\"board_id\"));\r",
+							"    pm.expect(pm.response.json().id).to.eql(pm.collectionVariables.get(\"board_id\"));\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check board's name\", function () {\r",
-							"  pm.expect(pm.response.json().name).to.eql(pm.environment.get(\"board_updated_name\"));\r",
+							"  pm.expect(pm.response.json().name).to.eql(pm.collectionVariables.get(\"board_updated_name\"));\r",
 							"});\r",
 							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const board_updated_name = \"board_\"+Math.random().toString(3).substring(3,6);\r",
+							"pm.collectionVariables.set(\"board_updated_name\", board_updated_name);"
 						],
 						"type": "text/javascript"
 					}
@@ -190,16 +210,16 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is less than 1000ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"pm.test(\"Response time is less than 4000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check board's ID\", function () {\r",
-							"    pm.expect(pm.response.json().id).to.eql(pm.environment.get(\"board_id\"));\r",
+							"    pm.expect(pm.response.json().id).to.eql(pm.collectionVariables.get(\"board_id\"));\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check board's name\", function () {\r",
-							"  pm.expect(pm.response.json().name).to.eql(pm.environment.get(\"board_updated_name\"));\r",
+							"  pm.expect(pm.response.json().name).to.eql(pm.collectionVariables.get(\"board_updated_name\"));\r",
 							"});\r",
 							""
 						],
@@ -245,8 +265,8 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is less than 1000ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"pm.test(\"Response time is less than 4000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000);\r",
 							"});\r",
 							""
 						],
@@ -296,8 +316,8 @@
 							"    pm.response.to.have.body(\"The requested resource was not found.\");\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is less than 1000ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"pm.test(\"Response time is less than 4000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000);\r",
 							"});\r",
 							""
 						],
@@ -331,6 +351,40 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "board_initial_name",
+			"value": ""
+		},
+		{
+			"key": "board_updated_name",
+			"value": ""
+		},
+		{
+			"key": "board_id",
+			"value": ""
 		}
 	]
 }
